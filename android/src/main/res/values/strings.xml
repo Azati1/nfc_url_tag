@@ -1,0 +1,4 @@
+<resources>
+    <string name="nfc_url_tag_service_description">NFC URL Tag</string>
+    <string name="nfc_url_tag_aid_description">NDEF Type 4 Tag application</string>
+</resources>
