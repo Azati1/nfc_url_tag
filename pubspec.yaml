@@ -1,6 +1,6 @@
 name: nfc_url_tag
 description: "Emulate an NFC Type 4 tag that broadcasts a URL via Android Host Card Emulation. Tap-to-open on any NFC reader."
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/Azati1/nfc_url_tag
 issue_tracker: https://github.com/Azati1/nfc_url_tag/issues
 

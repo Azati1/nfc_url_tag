@@ -5,6 +5,8 @@ NFC-enabled reader (another phone, iPhone with CoreNFC, standard NFC reader
 apps) that taps the device receives the URL as an NDEF URI record and
 typically opens it in a browser — no companion reader app required.
 
+![An Android phone shares a URL with nfc_url_tag; an iPhone taps it and opens the link in Safari](https://raw.githubusercontent.com/Azati1/nfc_url_tag/main/doc/demo.gif)
+
 > **Android only.** iOS does not permit third-party NFC tag emulation at the
 > OS level (Apple restricts the NFC chip to Apple Pay / Wallet).
 
