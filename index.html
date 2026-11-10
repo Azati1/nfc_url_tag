@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hello from an NFC tag · nfc_url_tag</title>
+<meta name="description" content="This link was shared over NFC by an Android phone running the nfc_url_tag Flutter plugin. No reader app needed.">
+<meta name="theme-color" content="#f5f7f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1211" media="(prefers-color-scheme: dark)">
+<style>
+  :root {
+    --bg: #f5f7f6; --ink: #101614; --soft: #56615d; --line: #d5dcd9; --panel: #e9eeec;
+    --accent: #0c7a45; --on-accent: #ffffff; --fn: #7a3fb8; --str: #0b5cad;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Roboto Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0e1211; --ink: #eef3f1; --soft: #9aa7a2; --line: #26302d; --panel: #171d1b;
+      --accent: #3ddc84; --on-accent: #062414; --fn: #d2a8ff; --str: #a5d6ff; }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { min-height: 100svh; background: var(--bg); color: var(--ink); font: 17px/1.5 var(--sans); -webkit-font-smoothing: antialiased;
+    padding: max(20px, env(safe-area-inset-top)) 22px max(28px, env(safe-area-inset-bottom)); }
+  main { max-width: 34rem; margin: 0 auto; }
+  a { color: inherit; }
+
+  .brand { display: flex; align-items: center; gap: 10px; font: 600 15px var(--mono); color: var(--soft); text-decoration: none; }
+  .brand svg { width: 22px; height: 22px; color: var(--accent); }
+
+  /* the tag "speaking": three arcs lighting up outward */
+  .waves { display: block; width: 104px; height: 104px; margin: 44px 0 26px; color: var(--accent); }
+  .waves path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; animation: speak 1.8s ease-in-out infinite; }
+  .waves path:nth-child(2) { animation-delay: .18s; }
+  .waves path:nth-child(3) { animation-delay: .36s; }
+  @keyframes speak { 0%, 100% { opacity: .25; } 35% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .waves path { animation: none; } }
+
+  h1 { font-size: clamp(2.3rem, 11vw, 3.4rem); line-height: 1.04; letter-spacing: -.035em; font-weight: 700; text-wrap: balance; }
+  .lead { margin-top: 18px; font-size: 1.12rem; color: var(--soft); text-wrap: pretty; }
+  .lead strong { color: var(--ink); font-weight: 600; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 24px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--line); }
+  .btn.primary { background: var(--accent); color: var(--on-accent); border-color: transparent; }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  h2 { margin-top: 52px; font-size: .82rem; letter-spacing: .09em; text-transform: uppercase; color: var(--soft); font-weight: 600; }
+  pre { margin-top: 12px; padding: 16px 18px; border-radius: 12px; background: var(--panel); overflow-x: auto; font: 14px/1.6 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+  pre .f { color: var(--fn); } pre .s { color: var(--str); }
+  ol { margin-top: 14px; padding-left: 1.3em; color: var(--soft); }
+  ol li + li { margin-top: 8px; }
+  ol strong { color: var(--ink); font-weight: 600; }
+  footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); font-size: .9rem; color: var(--soft); }
+</style>
+</head>
+<body>
+<main>
+  <a class="brand" href="https://pub.dev/packages/nfc_url_tag">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 8.5a5 5 0 0 1 0 7"/><path d="M10.5 5.5a9.5 9.5 0 0 1 0 13"/><path d="M15 2.5a14 14 0 0 1 0 19"/></g></svg>
+    nfc_url_tag
+  </a>
+
+  <svg class="waves" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8.5a5 5 0 0 1 0 7"/><path d="M10.5 5.5a9.5 9.5 0 0 1 0 13"/><path d="M15 2.5a14 14 0 0 1 0 19"/></svg>
+
+  <h1>Hello from an NFC&nbsp;tag</h1>
+  <p class="lead">If you got here by holding your phone to another one, <strong>that Android phone was the tag</strong>. It shared this link over NFC. You didn’t need an app to read it.</p>
+
+  <div class="actions">
+    <a class="btn primary" href="https://pub.dev/packages/nfc_url_tag">Get the Flutter plugin</a>
+    <a class="btn" href="https://github.com/Azati1/nfc_url_tag">Source</a>
+  </div>
+
+  <h2>What just happened</h2>
+  <ol>
+    <li>A Flutter app called <strong>startSharing</strong> with this page’s address.</li>
+    <li>The phone started answering NFC readers as a <strong>Type 4 tag</strong>.</li>
+    <li>Your phone read the link and offered to open it.</li>
+  </ol>
+
+  <h2>The whole integration</h2>
+  <pre><code>await NfcUrlTag.instance.<span class="f">startSharing</span>(
+  url: <span class="s">'https://azati1.github.io/nfc_url_tag/'</span>,
+);</code></pre>
+
+  <footer>Android only: iOS doesn’t let third-party apps emulate NFC tags. MIT licensed.</footer>
+</main>
+</body>
+</html>
