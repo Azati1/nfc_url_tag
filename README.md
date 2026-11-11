@@ -5,7 +5,7 @@ NFC-enabled reader (another phone, iPhone with CoreNFC, standard NFC reader
 apps) that taps the device receives the URL as an NDEF URI record and
 typically opens it in a browser — no companion reader app required.
 
-![An Android phone shares a URL with nfc_url_tag; an iPhone taps it and opens the link in Safari](https://raw.githubusercontent.com/Azati1/nfc_url_tag/main/doc/demo.gif)
+![An Android phone starts sharing a URL with nfc_url_tag; an iPhone held near it shows a Website NFC Tag notification and opens the link in Safari](https://raw.githubusercontent.com/Azati1/nfc_url_tag/main/doc/demo.gif)
 
 > **Android only.** iOS does not permit third-party NFC tag emulation at the
 > OS level (Apple restricts the NFC chip to Apple Pay / Wallet).
@@ -14,11 +14,18 @@ typically opens it in a browser — no companion reader app required.
 
 ```yaml
 dependencies:
-  nfc_url_tag: ^0.1.0
+  nfc_url_tag: ^0.1.2
 ```
 
 Requires Android 5.0+ (API 21) with NFC and Host Card Emulation
 (`android.hardware.nfc.hce`).
+
+## Setup
+
+No changes to `AndroidManifest.xml` are needed: the plugin declares the NFC
+permission and the HCE service itself. NFC is not marked as required, so your
+app still installs on devices without it. Check `isHceSupported()` before
+offering the feature.
 
 ## Usage
 
@@ -48,6 +55,17 @@ tag.nfcEnabledStream.listen((enabled) {
 
 await tag.openNfcSettings(); // Jump to the system NFC screen.
 ```
+
+## Good to know
+
+- **Sharing needs your app on screen.** `startSharing` fails with a
+  `NO_ACTIVITY` `PlatformException` if there is no foreground activity, and
+  Android only prefers this tag over other NFC apps while your app is in the
+  foreground. Removing the app from recents stops sharing.
+- **Keep the Android screen on.** Android does not answer NFC readers while
+  the display is off.
+
+Try it with a real link: <https://azati1.github.io/nfc_url_tag/>.
 
 ## API
 
